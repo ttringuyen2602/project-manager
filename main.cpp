@@ -7,8 +7,10 @@ int main()
 {
     Table table[100];
 
-    table[0].customer[0].tea.milkTea(2);
-    table[0].customer[1].coffee.blackCoffee(2);
-    table[0].pay();
-    table[0].bill();
+    table[0].output();
+    // table[0].customer[0].tea.milkTea(2);
+    // table[0].customer[1].coffee.blackCoffee(2);
+    // table[0].pay();
+    // table[0].bill();
+    system("pause");
 }

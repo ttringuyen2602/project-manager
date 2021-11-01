@@ -1,4 +1,5 @@
 #include <iostream>
+#pragma once
 
 using namespace std;
 
@@ -9,15 +10,14 @@ protected:
     int quantity;  //số lương
     int unitPrice; //đơn giá
     int amount;    //thành tiền
-    static int totalPay;
 
 public:
     Drink();
     ~Drink();
     virtual void addDrink(int choose, int n) = 0;
-    int getTotalPay() { return totalPay; };
+    virtual void output();
+    int getAmount() { return amount; }
 };
-int Drink::totalPay = 0;
 
 Drink::Drink()
 {
@@ -28,3 +28,11 @@ Drink::Drink()
 }
 
 Drink::~Drink() {}
+
+void Drink::output()
+{
+    cout << "Ten do uong: " << name << endl;
+    cout << "Gia: " << unitPrice << endl;
+    cout << "So luong: " << quantity << endl;
+    cout << "Thanh tien: " << amount << endl;
+}

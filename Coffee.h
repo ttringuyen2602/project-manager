@@ -4,54 +4,54 @@
 
 using namespace std;
 
-class Tea : public Drink
+class Coffee : public Drink
 {
 private:
-    const static int MILK_TEA = 20000, KUMQUAT_TEA = 12000, PEACH_TEA = 20000, GINGER_TEA = 20000, LEMON_TEA = 20000, LIPTON_TEA = 20000;
+    const static int BLACK_COFFEE = 16000, MILK_COFFEE = 18000;
 
 public:
-    Tea();
-    ~Tea();
-    void milkTea(int numberOf);
-    void kumquatTea(int numberOf);
+    Coffee();
+    ~Coffee();
+    void blackCoffee(int numberOf);
+    void milkCoffee(int numberOf);
     void addDrink(int choose, int numberOf);
     void output();
 };
 
-Tea::Tea() {}
+Coffee::Coffee() {}
 
-Tea::~Tea() {}
+Coffee::~Coffee() {}
 
-void Tea::milkTea(int numberOf)
+void Coffee::blackCoffee(int numberOf)
 {
-    name = "Tra Sua";
+    name = "Ca Phe Den";
     quantity = numberOf;
-    unitPrice = MILK_TEA;
+    unitPrice = BLACK_COFFEE;
     amount = unitPrice * quantity;
 }
 
-void Tea::kumquatTea(int numberOf)
+void Coffee::milkCoffee(int numberOf)
 {
-    name = "Tra Tac";
+    name = "Ca Phe Sua";
     quantity = numberOf;
-    unitPrice = KUMQUAT_TEA;
+    unitPrice = MILK_COFFEE;
     amount = unitPrice * quantity;
 }
 
-void Tea::addDrink(int choose, int numberOf)
+void Coffee::addDrink(int choose, int numberOf)
 {
     switch (choose)
     {
     case 1:
-        milkTea(numberOf);
+        blackCoffee(numberOf);
         break;
     case 2:
-        kumquatTea(numberOf);
+        milkCoffee(numberOf);
         break;
     }
 }
 
-void Tea::output()
+void Coffee::output()
 {
     cout << "Ten do uong: " << name << endl;
     cout << "So luong: " << quantity << endl;

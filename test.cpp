@@ -1,31 +1,33 @@
+#include "Drink.h"
 #include "Tea.h"
 
 class Customer
 {
 private:
-    /* data */
 public:
-    Customer(/* args */);
+    Customer();
     ~Customer();
-    Tea tea;
+    Drink *tea;
     void output();
 };
 
-Customer::Customer(/* args */)
+Customer::Customer()
 {
+    tea = new Tea;
 }
 
 Customer::~Customer()
 {
+    delete tea;
 }
 
 void Customer::output()
 {
-    tea.addDrink(1, 2);
-    cout << tea;
-    tea.addDrink(2, 3);
-    cout << tea;
-    cout << "Tong thanh toan: " << tea.getTotalPay() << endl;
+    tea->addDrink(1, 2);
+    tea->output();
+    tea->addDrink(2, 3);
+    tea->output();
+    cout << "Tong thanh toan: " << tea->getTotalPay() << endl;
 }
 
 int main()

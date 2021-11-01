@@ -1,21 +1,23 @@
 #include <iostream>
 #include "Customer.h"
+#pragma once
 
 using namespace std;
 
 class Table
 {
 private:
-    /* data */
+    Customer customer[100];
+
 public:
-    Table(/* args */);
+    Table();
     ~Table();
     void pay();
-    void bill();
-    Customer customer[100];
+    void seeBill();
+    void output();
 };
 
-Table::Table(/* args */)
+Table::Table()
 {
 }
 
@@ -23,7 +25,18 @@ Table::~Table()
 {
 }
 
-void Table::bill()
+void Table::output()
 {
-    customer->tea.getMilkTea();
+    customer[0].callDrink(1, 1, 2);
+    customer[0].output(1);
+    customer[0].callDrink(1, 2, 3);
+    customer[0].output(1);
+    customer[0].callDrink(2, 1, 5);
+    customer[0].output(2);
+    cout << "Tong thanh toan: " << customer[0].getTotalPrice() << endl;
 }
+
+// void Table::bill()
+// {
+//     customer->tea.getMilkTea();
+// }
