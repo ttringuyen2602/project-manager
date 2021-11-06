@@ -7,14 +7,14 @@ class Drink
 {
 protected:
     string name;      //tên sản phẩm
-    int quantity;     //số lương
+    int quantity;     //số lượng
     double unitPrice; //đơn giá
     double amount;    //thành tiền
 
 public:
     Drink();
     Drink(string name, int quantity, int unitPrice, int amount);
-    Drink(const Drink &drink);
+    Drink(const Drink& drink);
     ~Drink();
     virtual void addDrink(int choose, int n) = 0;
     virtual void print() = 0;
@@ -38,7 +38,7 @@ Drink::Drink(string name, int quantity, int unitPrice, int amount)
     this->amount = amount;
 }
 
-Drink::Drink(const Drink &drink)
+Drink::Drink(const Drink& drink)
 {
     this->name = drink.name;
     this->quantity = drink.quantity;
