@@ -1,7 +1,13 @@
 #include <iostream>
-#include "Drink.h"
-#include "Tea.h"
-#include "Coffee.h"
+#include "Drink\Drink.h"
+#include "Drink\Tea.h"
+#include "Drink\Coffee.h"
+#include "Drink\Juice.h"
+#include "Drink\Smoothie.h"
+#include "Drink\Yogurt.h"
+#include "Drink\IceBlended.h"
+#include "Drink\Soda.h"
+#include "Drink\SoftDrink.h"
 #pragma once
 
 using namespace std;
@@ -10,32 +16,51 @@ class Customer
 {
 private:
     static int totalPrice;
-    Drink *coffee;
-    Drink *tea;
+
+    Drink *milkTea, *gingerTea, *kumquatTea, *lemonTea, *liptonTea, *lycheeTea, *peachTea;
+
+    Drink *blackCoffee, *milkCoffee;
+
+    void chooseTea(int thisDrink, int numberOf);
+    void chooseCoffee(int thisDrink, int numberOf);
 
 public:
     Customer();
     ~Customer();
     int getTotalPrice() { return totalPrice; }
-    void output(int outputDrink);
     void callDrink(int typeOfDrink, int thisDrink, int numberOf);
-    void chooseCoffee(int thisDrink, int numberOf);
-    void chooseTea(int thisDrink, int numberOf);
+    void output(int outputDrink);
+    void mergeBill();
 };
 
 int Customer::totalPrice = 0;
 
 Customer::Customer()
 {
-    //totalPrice = 0;
-    coffee = new Coffee;
-    tea = new Tea;
+    milkTea = new Tea;
+    gingerTea = new Tea;
+    kumquatTea = new Tea;
+    lemonTea = new Tea;
+    liptonTea = new Tea;
+    lycheeTea = new Tea;
+    peachTea = new Tea;
+
+    blackCoffee = new Coffee;
+    milkCoffee = new Coffee;
 }
 
 Customer::~Customer()
 {
-    delete coffee;
-    delete tea;
+    delete milkTea;
+    delete gingerTea;
+    delete kumquatTea;
+    delete lemonTea;
+    delete liptonTea;
+    delete lycheeTea;
+    delete peachTea;
+
+    delete blackCoffee;
+    delete milkCoffee;
 }
 
 void Customer::output(int outputDrink)
@@ -43,11 +68,27 @@ void Customer::output(int outputDrink)
     switch (outputDrink)
     {
     case 1:
-        tea->output();
+        if (milkTea->getQuantity() != 0)
+            milkTea->print();
+        if (gingerTea->getQuantity() != 0)
+            gingerTea->print();
+        if (kumquatTea->getQuantity() != 0)
+            kumquatTea->print();
+        if (lemonTea->getQuantity() != 0)
+            lemonTea->print();
+        if (liptonTea->getQuantity() != 0)
+            liptonTea->print();
+        if (lycheeTea->getQuantity() != 0)
+            lycheeTea->print();
+        if (peachTea->getQuantity() != 0)
+            peachTea->print();
         break;
 
     case 2:
-        coffee->output();
+        if (blackCoffee->getQuantity() != 0)
+            blackCoffee->print();
+        if (milkCoffee->getQuantity() != 0)
+            milkCoffee->print();
         break;
     }
 }
@@ -58,18 +99,28 @@ void Customer::callDrink(int typeOfDrink, int thisDrink, int numberOf)
     {
     case 1: //Tea
         chooseTea(thisDrink, numberOf);
-        totalPrice += tea->getAmount();
         break;
     case 2: //Coffee
         chooseCoffee(thisDrink, numberOf);
-        totalPrice += coffee->getAmount();
         break;
-    case 3:
-        //chooseUnknown(thisDrink, numberOf);
-        break;
-    case 4:
-        //chooseunknown(thisDrink, numberOf);
-        break;
+        // case 3:
+        //     chooseJuice(thisDrink, numberOf);
+        //     break;
+        // case 4:
+        //     chooseSmoothie(thisDrink, numberOf);
+        //     break;
+        // case 5:
+        //     chooseYogurt(thisDrink, numberOf);
+        //     break;
+        // case 6:
+        //     chooseIceBlended(thisDrink, numberOf);
+        //     break;
+        // case 7:
+        //     chooseSoda(thisDrink, numberOf);
+        //     break;
+        // case 8:
+        //     chooseSoftDrink(thisDrink, numberOf);
+        //     break;
     }
 }
 
@@ -78,22 +129,32 @@ void Customer::chooseTea(int thisDrink, int numberOf)
     switch (thisDrink)
     {
     case 1:
-        tea->addDrink(1, numberOf);
+        milkTea->addDrink(1, numberOf);
+        totalPrice += milkTea->getAmount();
         break;
     case 2:
-        tea->addDrink(2, numberOf);
+        gingerTea->addDrink(2, numberOf);
+        totalPrice += gingerTea->getAmount();
         break;
     case 3:
-        tea->addDrink(3, numberOf);
+        kumquatTea->addDrink(3, numberOf);
+        totalPrice += kumquatTea->getAmount();
         break;
     case 4:
-        tea->addDrink(4, numberOf);
+        lemonTea->addDrink(4, numberOf);
+        totalPrice += lemonTea->getAmount();
         break;
     case 5:
-        tea->addDrink(5, numberOf);
+        liptonTea->addDrink(5, numberOf);
+        totalPrice += liptonTea->getAmount();
         break;
     case 6:
-        tea->addDrink(6, numberOf);
+        lycheeTea->addDrink(6, numberOf);
+        totalPrice += lycheeTea->getAmount();
+        break;
+    case 7:
+        peachTea->addDrink(6, numberOf);
+        totalPrice += peachTea->getAmount();
         break;
     }
 }
@@ -103,10 +164,12 @@ void Customer::chooseCoffee(int thisDrink, int numberOf)
     switch (thisDrink)
     {
     case 1:
-        coffee->addDrink(1, numberOf);
+        blackCoffee->addDrink(1, numberOf);
+        totalPrice += blackCoffee->getAmount();
         break;
     case 2:
-        coffee->addDrink(2, numberOf);
+        milkCoffee->addDrink(2, numberOf);
+        totalPrice += milkCoffee->getAmount();
         break;
         // case 3:
         //     coffee->addDrink(3, numberOf);

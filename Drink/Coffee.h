@@ -7,15 +7,13 @@ using namespace std;
 class Coffee : public Drink
 {
 private:
-    const static int BLACK_COFFEE = 16000, MILK_COFFEE = 18000;
-
 public:
     Coffee();
     ~Coffee();
     void blackCoffee(int numberOf);
     void milkCoffee(int numberOf);
     void addDrink(int choose, int numberOf);
-    void output();
+    void print();
 };
 
 Coffee::Coffee() {}
@@ -26,7 +24,7 @@ void Coffee::blackCoffee(int numberOf)
 {
     name = "Ca Phe Den";
     quantity = numberOf;
-    unitPrice = BLACK_COFFEE;
+    unitPrice = 16000;
     amount = unitPrice * quantity;
 }
 
@@ -34,7 +32,7 @@ void Coffee::milkCoffee(int numberOf)
 {
     name = "Ca Phe Sua";
     quantity = numberOf;
-    unitPrice = MILK_COFFEE;
+    unitPrice = 18000;
     amount = unitPrice * quantity;
 }
 
@@ -51,10 +49,9 @@ void Coffee::addDrink(int choose, int numberOf)
     }
 }
 
-void Coffee::output()
+void Coffee::print()
 {
-    cout << "Ten do uong: " << name << endl;
-    cout << "So luong: " << quantity << endl;
-    cout << "Gia: " << unitPrice << endl;
+    cout << name << " x" << quantity << "\t" << unitPrice << endl;
     cout << "Thanh tien: " << amount << endl;
+    cout << endl;
 }

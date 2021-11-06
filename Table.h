@@ -7,14 +7,13 @@ using namespace std;
 class Table
 {
 private:
-    Customer customer[100];
-
 public:
     Table();
     ~Table();
     void pay();
     void seeBill();
     void output();
+    Customer customer;
 };
 
 Table::Table()
@@ -27,16 +26,15 @@ Table::~Table()
 
 void Table::output()
 {
-    customer[0].callDrink(1, 1, 2);
-    customer[0].output(1);
-    customer[0].callDrink(1, 2, 3);
-    customer[0].output(1);
-    customer[0].callDrink(2, 1, 5);
-    customer[0].output(2);
-    cout << "Tong thanh toan: " << customer[0].getTotalPrice() << endl;
+    customer.callDrink(1, 1, 2);
+    customer.callDrink(1, 2, 3);
+    customer.callDrink(2, 1, 5);
+    customer.output(1);
+    customer.output(2);
+    cout << "Tong thanh toan: " << customer.getTotalPrice() << endl;
 }
 
-// void Table::bill()
+// void Table::seeBill()
 // {
 //     customer->tea.getMilkTea();
 // }
