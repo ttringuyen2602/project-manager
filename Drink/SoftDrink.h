@@ -9,13 +9,12 @@ public:
     SoftDrink();
     ~SoftDrink();
     void setSevenUp(int numberOf);
-    void setPepsi(int numberOf);
-    void setCoca(int numbeOf);
-    void setRedbull(int numbeOf);
-    void setRevive(int numbeOf);
-    void setSting(int numerOf);
-    void setStingThai(int numerOf);
-    void setC2(int numerOf);
+    void setCocaCola(int numberOf);
+    void setRedbull(int numberOf);
+    void setRevive(int numberOf);
+    void setSting(int numberOf);
+    void setC2(int numberOf);
+
     void addDrink(int choose, int numberOf);
     void print();
 };
@@ -24,7 +23,8 @@ SoftDrink::SoftDrink() {}
 
 SoftDrink::~SoftDrink() {}
 
-void SoftDrink::setSevenUp(int numberOf) {
+void SoftDrink::setSevenUp(int numberOf)
+{
 
     name = "7UP";
     quantity = numberOf;
@@ -32,50 +32,40 @@ void SoftDrink::setSevenUp(int numberOf) {
     amount = unitPrice * quantity;
 }
 
-void SoftDrink::setPepsi(int numberOf)
+void SoftDrink::setCocaCola(int numberOf)
 {
-    name = "Pepsi";
-    quantity = numberOf;
-    unitPrice = 18000;
-    amount = unitPrice * quantity;
-}
-
-void SoftDrink::setCoca(int numberOf) {
     name = "Coca-Cola";
     quantity = numberOf;
     unitPrice = 18000;
     amount = unitPrice * quantity;
 }
 
-void SoftDrink::setRedbull(int numberOf) {
+void SoftDrink::setRedbull(int numberOf)
+{
     name = "Redbull";
     quantity = numberOf;
     unitPrice = 20000;
     amount = unitPrice * quantity;
 }
 
-void SoftDrink::setRevive(int numberOf) {
+void SoftDrink::setRevive(int numberOf)
+{
     name = "Revive";
     quantity = numberOf;
     unitPrice = 18000;
     amount = unitPrice * quantity;
 }
 
-void SoftDrink::setSting(int numberOf) {
+void SoftDrink::setSting(int numberOf)
+{
     name = "Sting";
     quantity = numberOf;
     unitPrice = 18000;
     amount = unitPrice * quantity;
 }
 
-void SoftDrink::setStingThai(int numberOf) {
-    name = "Sting Thai";
-    quantity = numberOf;
-    unitPrice = 18000;
-    amount = unitPrice * quantity;
-}
-
-void SoftDrink::setC2(int numberOf) {
+void SoftDrink::setC2(int numberOf)
+{
     name = "C2";
     quantity = numberOf;
     unitPrice = 15000;
@@ -90,29 +80,22 @@ void SoftDrink::addDrink(int choose, int numberOf)
         setSevenUp(numberOf);
         break;
     case 2:
-        setPepsi(numberOf);
+        setCocaCola(numberOf);
         break;
     case 3:
-        setCoca(numberOf);
-        break;
-    case 4:
         setRedbull(numberOf);
         break;
-    case 5:
+    case 4:
         setRevive(numberOf);
         break;
-    case 6:
+    case 5:
         setSting(numberOf);
         break;
-    case 7:
-        setStingThai(numberOf);
-        break;
-    case 8:
+    case 6:
         setC2(numberOf);
         break;
     }
 }
-
 
 void SoftDrink::print()
 {

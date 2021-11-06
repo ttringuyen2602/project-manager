@@ -10,13 +10,14 @@ private:
 public:
     Coffee();
     ~Coffee();
-    void setblackCoffee(int numberOf);
-    void setmilkCoffee(int numberOf);
-    void setBacXiu(int numbeOf);
-    void setCaCao(int numbeOf);
-    void setblackEspresso(int numbeOf);
-    void setLatte(int numbeOf);
-    void setCappuccino(int numbeOf);
+    void setBlackCoffee(int numberOf);
+    void setMilkCoffee(int numberOf);
+    void setWhiteCoffee(int numberOf);
+    void setHotCocoa(int numberOf);
+    void setEspresso(int numberOf);
+    void setLatte(int numberOf);
+    void setCappuccino(int numberOf);
+    void setHotChocolate(int numberOf);
     void addDrink(int choose, int numberOf);
     void print();
 };
@@ -25,7 +26,8 @@ Coffee::Coffee() {}
 
 Coffee::~Coffee() {}
 
-void Coffee::setblackCoffee(int numberOf){
+void Coffee::setBlackCoffee(int numberOf)
+{
 
     name = "Ca Phe Den";
     quantity = numberOf;
@@ -33,7 +35,7 @@ void Coffee::setblackCoffee(int numberOf){
     amount = unitPrice * quantity;
 }
 
-void Coffee::setmilkCoffee(int numberOf)
+void Coffee::setMilkCoffee(int numberOf)
 {
     name = "Ca Phe Sua";
     quantity = numberOf;
@@ -41,36 +43,49 @@ void Coffee::setmilkCoffee(int numberOf)
     amount = unitPrice * quantity;
 }
 
-void Coffee::setBacXiu(int numberOf) {
+void Coffee::setWhiteCoffee(int numberOf)
+{
     name = "Bac Xiu";
     quantity = numberOf;
     unitPrice = 20000;
     amount = unitPrice * quantity;
 }
 
-void Coffee::setCaCao(int numberOf) {
-    name = "Ca Cao";
+void Coffee::setHotCocoa(int numberOf)
+{
+    name = "Ca Cao Nong";
     quantity = numberOf;
     unitPrice = 20000;
     amount = unitPrice * quantity;
 }
 
-void Coffee::setblackEspresso(int numberOf) {
-    name = "Espresso Den";
+void Coffee::setEspresso(int numberOf)
+{
+    name = "Espresso";
     quantity = numberOf;
     unitPrice = 13000;
     amount = unitPrice * quantity;
 }
 
-void Coffee::setLatte(int numberOf) {
+void Coffee::setLatte(int numberOf)
+{
     name = "Ca Phe Tao Hinh(Latte)";
     quantity = numberOf;
     unitPrice = 25000;
     amount = unitPrice * quantity;
 }
 
-void Coffee::setCappuccino(int numberOf) {
+void Coffee::setCappuccino(int numberOf)
+{
     name = "Ca Phe Y(Cappuccino)";
+    quantity = numberOf;
+    unitPrice = 25000;
+    amount = unitPrice * quantity;
+}
+
+void Coffee::setHotChocolate(int numberOf)
+{
+    name = "Socola Nong";
     quantity = numberOf;
     unitPrice = 25000;
     amount = unitPrice * quantity;
@@ -81,29 +96,31 @@ void Coffee::addDrink(int choose, int numberOf)
     switch (choose)
     {
     case 1:
-        setblackCoffee(numberOf);
+        setBlackCoffee(numberOf);
         break;
     case 2:
-        setmilkCoffee(numberOf);
+        setMilkCoffee(numberOf);
         break;
     case 3:
-        setBacXiu(numberOf);
+        setWhiteCoffee(numberOf);
         break;
     case 4:
-        setCaCao(numberOf);
+        setHotCocoa(numberOf);
         break;
     case 5:
-        setblackEspresso(numberOf);
+        setEspresso(numberOf);
         break;
-    case 7:
+    case 6:
         setLatte(numberOf);
         break;
-    case 8:
+    case 7:
         setCappuccino(numberOf);
+        break;
+    case 8:
+        setHotChocolate(numberOf);
         break;
     }
 }
-
 
 void Coffee::print()
 {

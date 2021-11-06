@@ -8,12 +8,13 @@ private:
 public:
     Juice();
     ~Juice();
-    void setChanh(int numberOf);
-    void setCam(int numberOf);
-    void setDuaHau(int numbeOf);
-    void setChanhDay(int numbeOf);
-    void setCaRot(int numbeOf);
-    void setDua(int numerOf);
+    void setLemonade(int numberOf);
+    void setOrangeade(int numberOf);
+    void setWatermelon_Juice(int numbeOf);
+    void setPassionFruit_Juice(int numbeOf);
+    void setCarrot_Juice(int numbeOf);
+    void setCoconutWater(int numerOf);
+
     void addDrink(int choose, int numberOf);
     void print();
 };
@@ -22,23 +23,26 @@ Juice::Juice() {}
 
 Juice::~Juice() {}
 
-void Juice::setChanh(int numberOf) {
+void Juice::setLemonade(int numberOf)
+{
 
-    name = "Nuoc Ep Chanh";
+    name = "Nuoc Chanh";
     quantity = numberOf;
     unitPrice = 20000;
     amount = unitPrice * quantity;
 }
 
-void Juice::setCam(int numberOf) {
+void Juice::setOrangeade(int numberOf)
+{
 
-    name = "Nuoc Ep Cam";
+    name = "Nuoc Cam";
     quantity = numberOf;
     unitPrice = 23000;
     amount = unitPrice * quantity;
 }
 
-void Juice::setDuaHau(int numberOf) {
+void Juice::setWatermelon_Juice(int numberOf)
+{
 
     name = "Nuoc Ep Dua Hau";
     quantity = numberOf;
@@ -46,15 +50,17 @@ void Juice::setDuaHau(int numberOf) {
     amount = unitPrice * quantity;
 }
 
-void Juice::setChanhDay(int numberOf) {
+void Juice::setPassionFruit_Juice(int numberOf)
+{
 
-    name = "Nuoc Ep Chanh Day";
+    name = "Nuoc Ep Lemon Day";
     quantity = numberOf;
     unitPrice = 20000;
     amount = unitPrice * quantity;
 }
 
-void Juice::setCaRot(int numberOf) {
+void Juice::setCarrot_Juice(int numberOf)
+{
 
     name = "Nuoc Ep Ca Rot";
     quantity = numberOf;
@@ -62,9 +68,10 @@ void Juice::setCaRot(int numberOf) {
     amount = unitPrice * quantity;
 }
 
-void Juice::setDua(int numberOf) {
+void Juice::setCoconutWater(int numberOf)
+{
 
-    name = "Nuoc Ep Dua";
+    name = "Dua Tuoi";
     quantity = numberOf;
     unitPrice = 20000;
     amount = unitPrice * quantity;
@@ -74,26 +81,25 @@ void Juice::addDrink(int choose, int numberOf)
     switch (choose)
     {
     case 1:
-        setChanh(numberOf);
+        setLemonade(numberOf);
         break;
     case 2:
-        setCam(numberOf);
+        setOrangeade(numberOf);
         break;
     case 3:
-        setDuaHau(numberOf);
+        setWatermelon_Juice(numberOf);
         break;
     case 4:
-        setChanhDay(numberOf);
+        setPassionFruit_Juice(numberOf);
         break;
     case 5:
-        setCaRot(numberOf);
+        setCarrot_Juice(numberOf);
         break;
     case 6:
-        setDua(numberOf);
+        setCoconutWater(numberOf);
         break;
     }
 }
-
 
 void Juice::print()
 {

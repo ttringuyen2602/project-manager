@@ -12,17 +12,6 @@ void PrintMenu()
     cout << "\t4. Thoat" << endl;
 }
 
-void TeaMenu()
-{
-    cout << "\t1. Milk Tea" << endl;
-    cout << "\t2. Ginger Tea" << endl;
-    cout << "\t3. Kumquat Tea" << endl;
-    cout << "\t4. Lemon Tea" << endl;
-    cout << "\t5. Lipton Tea" << endl;
-    cout << "\t6. Lychee Tea" << endl;
-    cout << "\t7. Peach Tea" << endl;
-}
-
 void DrinkMenu()
 {
     cout << "\t1. TEA" << endl;
@@ -33,6 +22,17 @@ void DrinkMenu()
     cout << "\t6. ICE BLENDED" << endl;
     cout << "\t7. SODA" << endl;
     cout << "\t8. SOFT DRINK" << endl;
+}
+
+void TeaMenu()
+{
+    cout << "\t1. Milk Tea" << endl;
+    cout << "\t2. Ginger Tea" << endl;
+    cout << "\t3. Kumquat Tea" << endl;
+    cout << "\t4. Lemon Tea" << endl;
+    cout << "\t5. Lipton Tea" << endl;
+    cout << "\t6. Lychee Tea" << endl;
+    cout << "\t7. Peach Tea" << endl;
 }
 
 void CoffeeMenu()
@@ -84,9 +84,8 @@ int main()
 {
     Table table[100];
     cout << "********** MENU **********" << endl;
-    Choose(table);
-    table[0]
-        .output();
+    //Choose(table);
+    table[0].seeBill();
     // table[0].customer[0].tea.milkTea(2);
     // table[0].customer[1].coffee.blackCoffee(2);
     // table[0].pay();

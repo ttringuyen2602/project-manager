@@ -24,7 +24,7 @@ Table::~Table()
 {
 }
 
-void Table::output()
+void Table::seeBill()
 {
     customer.callDrink(1, 1, 2);
     customer.callDrink(1, 2, 3);
@@ -33,8 +33,3 @@ void Table::output()
     customer.output(2);
     cout << "Tong thanh toan: " << customer.getTotalPrice() << endl;
 }
-
-// void Table::seeBill()
-// {
-//     customer->tea.getMilkTea();
-// }
