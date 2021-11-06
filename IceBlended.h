@@ -6,80 +6,77 @@ using namespace std;
 class IceBlended : public Drink
 {
 private:
-    const static int IB_Lemon = 30000, IB_BlueBerry = 30000, IB_Chocolate = 30000, IB_Chocomint = 30000,
-        IB_Coffee = 30000, IB_Matcha = 30000, IB_Strawberry = 30000;
-
 public:
     IceBlended();
     ~IceBlended();
-    void Lemon(int numberOf);
-    void Blueberry(int numberOf);
-    void Chocolate(int numbeOf);
-    void Chocomint(int numbeOf);
-    void Coffee(int numbeOf);
-    void Matcha(int numerOf);
-    void Strawberry(int numerOf);
+    void setLemon(int numberOf);
+    void setBlueberry(int numberOf);
+    void setChocolate(int numbeOf);
+    void setChocomint(int numbeOf);
+    void setCoffee(int numbeOf);
+    void setMatcha(int numerOf);
+    void setStrawberry(int numerOf);
     void addDrink(int choose, int numberOf);
-    void output();
+    void print();
 };
 
 IceBlended::IceBlended() {}
 
 IceBlended::~IceBlended() {}
 
-void IceBlended::Lemon(int numberOf) {
+void IceBlended::setLemon(int numberOf) {
 
     name = "Lemon Ice Blended";
     quantity = numberOf;
-    unitPrice = IB_Lemon;
+    unitPrice = 30000;
     amount = unitPrice * quantity;
 }
 
-void IceBlended::Blueberry(int numberOf) {
+void IceBlended::setBlueberry(int numberOf) {
 
     name = "Blueberry Ice Blended";
     quantity = numberOf;
-    unitPrice = IB_BlueBerry;
+    unitPrice = 30000;
     amount = unitPrice * quantity;
 }
 
-void IceBlended::Chocolate(int numberOf) {
+void IceBlended::setChocolate(int numberOf) {
 
     name = "Chocolate Ice Blended";
     quantity = numberOf;
-    unitPrice = IB_Chocolate;
+    unitPrice = 30000;
     amount = unitPrice * quantity;
 }
 
-void IceBlended::Chocomint(int numberOf) {
+void IceBlended::setChocomint(int numberOf) {
 
     name = "Chocomint Ice Blended";
     quantity = numberOf;
-    unitPrice = IB_Chocomint;
+    unitPrice = 30000;
     amount = unitPrice * quantity;
 }
 
-void IceBlended::Coffee(int numberOf) {
+void IceBlended::setCoffee(int numberOf) {
 
     name = "Coffee Ice Blended";
     quantity = numberOf;
-    unitPrice = IB_Coffee;
+    unitPrice = 30000;
     amount = unitPrice * quantity;
 }
 
-void IceBlended::Matcha(int numberOf) {
+void IceBlended::setMatcha(int numberOf) {
 
     name = "Matcha Ice Blended";
     quantity = numberOf;
-    unitPrice = IB_Matcha;
+    unitPrice = 30000;
     amount = unitPrice * quantity;
 }
 
-void IceBlended::Strawberry(int numberOf) {
+void IceBlended::setStrawberry(int numberOf) {
 
     name = "Strawberry Ice Blended";
     quantity = numberOf;
-    unitPrice = IB_Strawberry;
+    unitPrice = 30000;
     amount = unitPrice * quantity;
 }
 
@@ -88,34 +85,33 @@ void IceBlended::addDrink(int choose, int numberOf)
     switch (choose)
     {
     case 1:
-        Lemon(numberOf);
+        setLemon(numberOf);
         break;
     case 2:
-        Blueberry(numberOf);
+        setBlueberry(numberOf);
         break;
     case 3:
-        Chocolate(numberOf);
+        setChocolate(numberOf);
         break;
     case 4:
-        Chocomint(numberOf);
+        setChocomint(numberOf);
         break;
     case 5:
-        Coffee(numberOf);
+        setCoffee(numberOf);
         break;
     case 6:
-        Matcha(numberOf);
+        setMatcha(numberOf);
         break;
     case 7:
-        Strawberry(numberOf);
+        setStrawberry(numberOf);
         break;
     }
 }
 
 
-void IceBlended::output()
+void IceBlended::print()
 {
-    cout << "Ten do uong: " << name << endl;
-    cout << "So luong: " << quantity << endl;
-    cout << "Gia: " << unitPrice << endl;
+    cout << name << " x" << quantity << "\t" << unitPrice << endl;
     cout << "Thanh tien: " << amount << endl;
+    cout << endl;
 }

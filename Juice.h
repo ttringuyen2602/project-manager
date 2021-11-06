@@ -5,71 +5,68 @@
 class Juice : public Drink
 {
 private:
-    const static int CHANH = 20000, CAM = 23000, DUA_HAU = 25000,
-        CHANH_DAY = 20000, CA_ROT = 20000, DUA = 20000;
-
 public:
     Juice();
     ~Juice();
-    void Chanh(int numberOf);
-    void Cam(int numberOf);
-    void DuaHau(int numbeOf);
-    void ChanhDay(int numbeOf);
-    void CaRot(int numbeOf);
-    void Dua(int numerOf);
+    void setChanh(int numberOf);
+    void setCam(int numberOf);
+    void setDuaHau(int numbeOf);
+    void setChanhDay(int numbeOf);
+    void setCaRot(int numbeOf);
+    void setDua(int numerOf);
     void addDrink(int choose, int numberOf);
-    void output();
+    void print();
 };
 
 Juice::Juice() {}
 
 Juice::~Juice() {}
 
-void Juice::Chanh(int numberOf) {
+void Juice::setChanh(int numberOf) {
 
     name = "Nuoc Ep Chanh";
     quantity = numberOf;
-    unitPrice = CHANH;
+    unitPrice = 20000;
     amount = unitPrice * quantity;
 }
 
-void Juice::Cam(int numberOf) {
+void Juice::setCam(int numberOf) {
 
     name = "Nuoc Ep Cam";
     quantity = numberOf;
-    unitPrice = CAM;
+    unitPrice = 23000;
     amount = unitPrice * quantity;
 }
 
-void Juice::DuaHau(int numberOf) {
+void Juice::setDuaHau(int numberOf) {
 
     name = "Nuoc Ep Dua Hau";
     quantity = numberOf;
-    unitPrice = DUA_HAU;
+    unitPrice = 25000;
     amount = unitPrice * quantity;
 }
 
-void Juice::ChanhDay(int numberOf) {
+void Juice::setChanhDay(int numberOf) {
 
     name = "Nuoc Ep Chanh Day";
     quantity = numberOf;
-    unitPrice = CHANH_DAY;
+    unitPrice = 20000;
     amount = unitPrice * quantity;
 }
 
-void Juice::CaRot(int numberOf) {
+void Juice::setCaRot(int numberOf) {
 
     name = "Nuoc Ep Ca Rot";
     quantity = numberOf;
-    unitPrice = CA_ROT;
+    unitPrice = 20000;
     amount = unitPrice * quantity;
 }
 
-void Juice::Dua(int numberOf) {
+void Juice::setDua(int numberOf) {
 
     name = "Nuoc Ep Dua";
     quantity = numberOf;
-    unitPrice = DUA;
+    unitPrice = 20000;
     amount = unitPrice * quantity;
 }
 void Juice::addDrink(int choose, int numberOf)
@@ -77,31 +74,30 @@ void Juice::addDrink(int choose, int numberOf)
     switch (choose)
     {
     case 1:
-        Chanh(numberOf);
+        setChanh(numberOf);
         break;
     case 2:
-        Cam(numberOf);
+        setCam(numberOf);
         break;
     case 3:
-        DuaHau(numberOf);
+        setDuaHau(numberOf);
         break;
     case 4:
-        ChanhDay(numberOf);
+        setChanhDay(numberOf);
         break;
     case 5:
-        CaRot(numberOf);
+        setCaRot(numberOf);
         break;
     case 6:
-        Dua(numberOf);
+        setDua(numberOf);
         break;
     }
 }
 
 
-void Juice::output()
+void Juice::print()
 {
-    cout << "Ten do uong: " << name << endl;
-    cout << "So luong: " << quantity << endl;
-    cout << "Gia: " << unitPrice << endl;
+    cout << name << " x" << quantity << "\t" << unitPrice << endl;
     cout << "Thanh tien: " << amount << endl;
+    cout << endl;
 }
