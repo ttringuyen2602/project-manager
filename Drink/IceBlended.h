@@ -12,7 +12,7 @@ public:
     void setLemon_IceBlended(int numberOf);
     void setBlueberry_IceBlended(int numberOf);
     void setChocolate_IceBlended(int numbeOf);
-    void setChocomint_IceBlended(int numbeOf);
+    void setMint_IceBlended(int numbeOf);
     void setSapocheCoffee_IceBlended(int numbeOf);
     void setMatcha_IceBlended(int numerOf);
     void setStrawberry_IceBlended(int numerOf);
@@ -52,10 +52,10 @@ void IceBlended::setChocolate_IceBlended(int numberOf)
     amount = unitPrice * quantity;
 }
 
-void IceBlended::setChocomint_IceBlended(int numberOf)
+void IceBlended::setMint_IceBlended(int numberOf)
 {
 
-    name = "Chocomint Ice Blended";
+    name = "Mint Ice Blended";
     quantity = numberOf;
     unitPrice = 30000;
     amount = unitPrice * quantity;
@@ -102,7 +102,7 @@ void IceBlended::addDrink(int choose, int numberOf)
         setChocolate_IceBlended(numberOf);
         break;
     case 4:
-        setChocomint_IceBlended(numberOf);
+        setMint_IceBlended(numberOf);
         break;
     case 5:
         setSapocheCoffee_IceBlended(numberOf);

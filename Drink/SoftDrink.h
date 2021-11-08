@@ -25,7 +25,6 @@ SoftDrink::~SoftDrink() {}
 
 void SoftDrink::setSevenUp(int numberOf)
 {
-
     name = "7UP";
     quantity = numberOf;
     unitPrice = 18000;

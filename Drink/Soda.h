@@ -6,69 +6,71 @@ using namespace std;
 
 class Soda : public Drink
 {
-    private:
-    public:
-        Soda();
-        ~Soda();
-        void setLemonSoda(int numberof);
-        void setPeachSoda(int numberOf);
-        void setMintSoa(int numberOf);
-        void setPassionSoda(int numberOf);
-        void setKiwiSoda(int numberOf);
-        void setRaspberrySoda(int numberOf);
-        void addDrink(int choose, int numberOf);
-        void print();
+private:
+public:
+    Soda();
+    ~Soda();
+    void setLemon_Soda(int numberOf);
+    void setPeach_Soda(int numberOf);
+    void setMint_Soda(int numberOf);
+    void setPassion_Soda(int numberOf);
+    void setKiwi_Soda(int numberOf);
+    void setRaspberry_Soda(int numberOf);
+
+    void addDrink(int choose, int numberOf);
+    void print();
 };
 
 Soda::Soda() {}
 
 Soda::~Soda() {}
 
-void Soda::setLemonSoda(int numberOf)
+void Soda::setLemon_Soda(int numberOf)
 {
-    name = "Soda chanh";
+
+    name = "Soda Chanh";
     quantity = numberOf;
     unitPrice = 18000;
     amount = unitPrice * quantity;
 }
 
-void Soda::setPeachSoda(int numberOf)
+void Soda::setPeach_Soda(int numberOf)
 {
-    name = "Soda dao";
+    name = "Soda Dao";
     quantity = numberOf;
     unitPrice = 18000;
     amount = unitPrice * quantity;
 }
 
-void Soda::setMintSoa(int numberOf)
+void Soda::setMint_Soda(int numberOf)
 {
-    name = "Soda bac ha";
+    name = "Soda Bac Ha";
     quantity = numberOf;
-    unitPrice = 18000;
+    unitPrice = 20000;
     amount = unitPrice * quantity;
 }
 
-void Soda::setPassionSoda(int numberOf)
+void Soda::setPassion_Soda(int numberOf)
 {
-    name = "Soda chanh day";
+    name = "Soda Chanh Day";
     quantity = numberOf;
-    unitPrice = 18000;
+    unitPrice = 20000;
     amount = unitPrice * quantity;
 }
 
-void Soda::setKiwiSoda(int numberOf)
+void Soda::setKiwi_Soda(int numberOf)
 {
-    name = "Soda kiwi";
+    name = "Soda Kiwi";
     quantity = numberOf;
-    unitPrice = 18000;
+    unitPrice = 20000;
     amount = unitPrice * quantity;
 }
 
-void Soda::setRaspberrySoda(int numberOf)
+void Soda::setRaspberry_Soda(int numberOf)
 {
-    name = "Soda phuc bon tu";
+    name = "Soda Phuc Bon Tu";
     quantity = numberOf;
-    unitPrice = 18000;
+    unitPrice = 25000;
     amount = unitPrice * quantity;
 }
 
@@ -77,22 +79,22 @@ void Soda::addDrink(int choose, int numberOf)
     switch (choose)
     {
     case 1:
-        setLemonSoda(numberOf);
+        setLemon_Soda(numberOf);
         break;
     case 2:
-        setPeachSoda(numberOf);
+        setPeach_Soda(numberOf);
         break;
     case 3:
-        setMintSoa(numberOf);
+        setMint_Soda(numberOf);
         break;
     case 4:
-        setPassionSoda(numberOf);
+        setPassion_Soda(numberOf);
         break;
     case 5:
-        setKiwiSoda(numberOf);
+        setKiwi_Soda(numberOf);
         break;
     case 6:
-        setRaspberrySoda(numberOf);
+        setRaspberry_Soda(numberOf);
         break;
     }
 }
@@ -102,3 +104,4 @@ void Soda::print()
     cout << name << " x" << quantity << "\t" << unitPrice << endl;
     cout << "Thanh tien: " << amount << endl;
     cout << endl;
+}

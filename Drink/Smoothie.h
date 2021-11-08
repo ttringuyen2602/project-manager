@@ -10,10 +10,13 @@ private:
 public:
     Smoothie();
     ~Smoothie();
-    void setAvocadoSmoothie(int numberOf);
-    void setDurianSmoothie(int numberOf);
-    void setBlueberrySmoothie(int numberOf);
-    void setStrawberySmoothie(int numberOf);
+    void setAvocado_Smoothie(int numberOf);
+    void setDurian_Smoothie(int numberOf);
+    void setBlueberry_Smoothie(int numberOf);
+    void setStrawberry_Smoothie(int numberOf);
+    void setSugarApple_Smoothie(int numberOf);
+    void setMango_Smoothie(int numberOf);
+
     void addDrink(int choose, int numberOf);
     void print();
 };
@@ -22,35 +25,52 @@ Smoothie::Smoothie() {}
 
 Smoothie::~Smoothie() {}
 
-void Smoothie::setAvocadoSmoothie(int numberOf)
+void Smoothie::setAvocado_Smoothie(int numberOf)
 {
-    name = "Sinh to bo";
+
+    name = "Sinh To Bo";
     quantity = numberOf;
     unitPrice = 30000;
     amount = unitPrice * quantity;
 }
 
-void Smoothie::setDurianSmoothie(int numberOf)
+void Smoothie::setDurian_Smoothie(int numberOf)
 {
-    name = "Sinh to sau rieng";
+    name = "Sinh To Sau Rieng";
     quantity = numberOf;
     unitPrice = 25000;
     amount = unitPrice * quantity;
 }
 
-void Smoothie::setBlueberrySmoothie(int numberOf)
+void Smoothie::setBlueberry_Smoothie(int numberOf)
 {
-    name = "Sinh to viet quat";
+    name = "Sinh To Viet Quat";
     quantity = numberOf;
-    unitPrice = 29500;
+    unitPrice = 25000;
     amount = unitPrice * quantity;
 }
 
-void Smoothie::setStrawberySmoothie(int numberOf)
+void Smoothie::setStrawberry_Smoothie(int numberOf)
 {
-    name = "Sinh to dau";
+    name = "Sinh To Dau";
     quantity = numberOf;
-    unitPrice = 35000;
+    unitPrice = 25000;
+    amount = unitPrice * quantity;
+}
+
+void Smoothie::setSugarApple_Smoothie(int numberOf)
+{
+    name = "Sinh To Mang Cau";
+    quantity = numberOf;
+    unitPrice = 25000;
+    amount = unitPrice * quantity;
+}
+
+void Smoothie::setMango_Smoothie(int numberOf)
+{
+    name = "Sinh To Xoai";
+    quantity = numberOf;
+    unitPrice = 25000;
     amount = unitPrice * quantity;
 }
 
@@ -59,16 +79,22 @@ void Smoothie::addDrink(int choose, int numberOf)
     switch (choose)
     {
     case 1:
-        setAvocadoSmoothie(numberOf);
+        setAvocado_Smoothie(numberOf);
         break;
     case 2:
-        setDurianSmoothie(numberOf);
+        setDurian_Smoothie(numberOf);
         break;
     case 3:
-        setBlueberrySmoothie(numberOf);
+        setBlueberry_Smoothie(numberOf);
         break;
     case 4:
-        setStrawberySmoothie(numberOf);
+        setStrawberry_Smoothie(numberOf);
+        break;
+    case 5:
+        setSugarApple_Smoothie(numberOf);
+        break;
+    case 6:
+        setMango_Smoothie(numberOf);
         break;
     }
 }

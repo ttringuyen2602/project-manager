@@ -10,12 +10,13 @@ private:
 public:
     Yogurt();
     ~Yogurt();
-    void setCheeseYogurt(int numberOf);
-    void setAvocadoYogurt(int numberOf);
-    void setPeachYogurt(int numberOf);
-    void setMangoYogurt(int numberOf);
-    void setMatchaYogurt(int numberOf);
-    void setBlueberryYogurt(int numberOf);
+    void setCheese_Yogurt(int numberOf);
+    void setAvocado_Yogurt(int numberOf);
+    void setLychee_Yogurt(int numberOf);
+    void setMango_Yogurt(int numberOf);
+    void setMatcha_Yogurt(int numberOf);
+    void setBlueberry_Yogurt(int numberOf);
+
     void addDrink(int choose, int numberOf);
     void print();
 };
@@ -24,49 +25,50 @@ Yogurt::Yogurt() {}
 
 Yogurt::~Yogurt() {}
 
-void Yogurt::setCheeseYogurt(int numberOf)
+void Yogurt::setCheese_Yogurt(int numberOf)
 {
-    name = "Sua chua kem pho mai";
+
+    name = "Sua Chua Kem Pho Mai";
     quantity = numberOf;
-    unitPrice = 10000;
+    unitPrice = 20000;
     amount = unitPrice * quantity;
 }
 
-void Yogurt::setAvocadoYogurt(int numberOf)
+void Yogurt::setAvocado_Yogurt(int numberOf)
 {
-    name = "Sua chua kem bo";
-    quantity = numberOf;
-    unitPrice = 35000;
-    amount = unitPrice * quantity;
-}
-
-void Yogurt::setPeachYogurt(int numberOf)
-{
-    name = "Sua chua kem dao";
+    name = "Sua Chua Kem Bo";
     quantity = numberOf;
     unitPrice = 25000;
     amount = unitPrice * quantity;
 }
 
-void Yogurt::setMangoYogurt(int numberOf)
+void Yogurt::setLychee_Yogurt(int numberOf)
 {
-    name = "Sua chua kem xoai tuoi";
+    name = "Sua Chua Vai";
     quantity = numberOf;
-    unitPrice = 35000;
+    unitPrice = 25000;
     amount = unitPrice * quantity;
 }
 
-void Yogurt::setMatchaYogurt(int numberOf)
+void Yogurt::setMango_Yogurt(int numberOf)
 {
-    name = "Sua chua kem tra xanh";
+    name = "Sua Chua Kem Xoai Tuoi";
     quantity = numberOf;
-    unitPrice = 18000;
+    unitPrice = 20000;
     amount = unitPrice * quantity;
 }
 
-void Yogurt::setBlueberryYogurt(int numberOf)
+void Yogurt::setMatcha_Yogurt(int numberOf)
 {
-    name = "Sua chua kem viet quat";
+    name = "Sua Chua Kem Tra Xanh";
+    quantity = numberOf;
+    unitPrice = 25000;
+    amount = unitPrice * quantity;
+}
+
+void Yogurt::setBlueberry_Yogurt(int numberOf)
+{
+    name = "Sua Chua Viet Quat";
     quantity = numberOf;
     unitPrice = 25000;
     amount = unitPrice * quantity;
@@ -77,27 +79,28 @@ void Yogurt::addDrink(int choose, int numberOf)
     switch (choose)
     {
     case 1:
-        setCheeseYogurt(numberOf);
+        setCheese_Yogurt(numberOf);
         break;
     case 2:
-        setAvocadoYogurt(numberOf);
+        setAvocado_Yogurt(numberOf);
         break;
     case 3:
-        setPeachYogurt(numberOf);
+        setLychee_Yogurt(numberOf);
         break;
     case 4:
-        setMangoYogurt(numberOf);
+        setMango_Yogurt(numberOf);
         break;
     case 5:
-        setMatchaYogurt(numberOf);
+        setMatcha_Yogurt(numberOf);
         break;
     case 6:
-        setBlueberryYogurt(numberOf);
+        setBlueberry_Yogurt(numberOf);
         break;
     }
 }
 
-void Yogurt::print(){
+void Yogurt::print()
+{
     cout << name << " x" << quantity << "\t" << unitPrice << endl;
     cout << "Thanh tien: " << amount << endl;
     cout << endl;
