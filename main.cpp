@@ -12,18 +12,6 @@ void PrintMenu()
     cout << "\t4. Thoat" << endl;
 }
 
-void DrinkMenu()
-{
-    cout << "\t1. TEA" << endl;
-    cout << "\t2. COFFEE" << endl;
-    cout << "\t3. JUICE" << endl;
-    cout << "\t4. SMOOTHIE" << endl;
-    cout << "\t5. YOGURT" << endl;
-    cout << "\t6. ICE BLENDED" << endl;
-    cout << "\t7. SODA" << endl;
-    cout << "\t8. SOFT DRINK" << endl;
-}
-
 void TeaMenu()
 {
     cout << "\t1. Milk Tea" << endl;
@@ -41,11 +29,40 @@ void CoffeeMenu()
     cout << "\t2. Milk Coffee" << endl;
 }
 
+void DrinkMenu(int typeOfDrink)
+{
+
+    cout << "\t1. TEA" << endl;
+    cout << "\t2. COFFEE" << endl;
+    cout << "\t3. JUICE" << endl;
+    cout << "\t4. SMOOTHIE" << endl;
+    cout << "\t5. YOGURT" << endl;
+    cout << "\t6. ICE BLENDED" << endl;
+    cout << "\t7. SODA" << endl;
+    cout << "\t8. SOFT DRINK" << endl;
+
+    cout << "Chon: ";
+    cin >> typeOfDrink;
+
+    switch (typeOfDrink)
+    {
+    case 1:
+        system("cls");
+        TeaMenu();
+        break;
+    case 2:
+        system("cls");
+        //CoffeeMenu(); thêm hàm vào
+        break;
+    }
+}
+
 void Choose(Table table[])
 {
     int n;
     int tableNumber;
     int typeOfDrink, thatDrink, numberOf;
+
     do
     {
         system("cls");
@@ -61,20 +78,19 @@ void Choose(Table table[])
             system("cls");
             while (true)
             {
-                DrinkMenu();
-                cout << "Chon: ";
-                cin >> typeOfDrink;
-                if (typeOfDrink == 0)
-                    break;
-                system("cls");
-                TeaMenu();
+                DrinkMenu(typeOfDrink);
                 cout << "Chon: ";
                 cin >> thatDrink;
                 cout << "So luong: ";
                 cin >> numberOf;
                 table[tableNumber].customer.callDrink(typeOfDrink, thatDrink, numberOf);
             }
-
+            break;
+        case 2:
+            cout << "Ban so? ";
+            cin >> tableNumber;
+            system("cls");
+            //table[tableNumber].customer
             break;
         }
     } while (n != 4);
@@ -86,9 +102,6 @@ int main()
     cout << "********** MENU **********" << endl;
     //Choose(table);
     table[0].seeBill();
-    // table[0].customer[0].tea.milkTea(2);
-    // table[0].customer[1].coffee.blackCoffee(2);
-    // table[0].pay();
-    // table[0].bill();
+
     system("pause");
 }

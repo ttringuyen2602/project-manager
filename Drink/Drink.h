@@ -20,6 +20,7 @@ public:
     virtual void print() = 0;
     double getAmount() { return amount; }
     int getQuantity() { return quantity; }
+    void setQuantity(int quantity) { this->quantity = quantity; }
 };
 
 Drink::Drink()
