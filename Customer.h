@@ -45,24 +45,15 @@ private:
     void chooseSoda(int thisDrink, int numberOf);
     void chooseSoftDrink(int thisDrink, int numberOf);
 
-    //Các hàm dùng để kiểm tra đồ uống có được gọi hay không
-    void checkTea();
-    void checkCoffee();
-    void checkJuice();
-    void checkSmoothie();
-    void checkYogurt();
-    void checkIceBlended();
-    void checkSoda();
-    void checkSoftDrink();
-
 public:
     Customer();
     ~Customer();
 
     int getTotalPrice() { return totalPrice; }
     void callDrink(int typeOfDrink, int thisDrink, int numberOf); //Hàm nhập đồ uống thông qua các thao tác
-    void output(int outputDrink);                                 //Xuất ra các đồ uống đã gọi
-    void mergeBill();
+    void printIfExist();                                          //Xuất ra các đồ uống đã gọi
+    void removeDrink(int typeOfDrink, int thisDrink);             //Xóa đồ uống nếu lỡ gọi nhầm
+    void removeAllDrink();
 };
 
 int Customer::totalPrice = 0;
@@ -193,37 +184,6 @@ Customer::~Customer()
     delete c2;
 }
 
-void Customer::output(int outputDrink)
-{
-    switch (outputDrink)
-    {
-    case 1:
-        checkTea();
-        break;
-    case 2:
-        checkCoffee();
-        break;
-    case 3:
-        checkJuice();
-        break;
-    case 4:
-        checkSmoothie();
-        break;
-    case 5:
-        checkYogurt();
-        break;
-    case 6:
-        checkIceBlended();
-        break;
-    case 7:
-        checkSoda();
-        break;
-    case 8:
-        checkSoftDrink();
-        break;
-    }
-}
-
 void Customer::callDrink(int typeOfDrink, int thisDrink, int numberOf)
 {
     switch (typeOfDrink)
@@ -251,6 +211,37 @@ void Customer::callDrink(int typeOfDrink, int thisDrink, int numberOf)
         break;
     case 8: //Soft Drink
         chooseSoftDrink(thisDrink, numberOf);
+        break;
+    }
+}
+
+void Customer::removeDrink(int typeOfDrink, int thisDrink)
+{
+    switch (typeOfDrink)
+    {
+    case 1: //Tea
+        chooseTea(thisDrink, 0);
+        break;
+    case 2: //Coffee
+        chooseCoffee(thisDrink, 0);
+        break;
+    case 3: //Juice
+        chooseJuice(thisDrink, 0);
+        break;
+    case 4: //Smoothie
+        chooseSmoothie(thisDrink, 0);
+        break;
+    case 5: //Yogurt
+        chooseYogurt(thisDrink, 0);
+        break;
+    case 6: //Ice Blended
+        chooseIceBlended(thisDrink, 0);
+        break;
+    case 7: //Soda
+        chooseSoda(thisDrink, 0);
+        break;
+    case 8: //Soft Drink
+        chooseSoftDrink(thisDrink, 0);
         break;
     }
 }
@@ -515,8 +506,9 @@ void Customer::chooseSoftDrink(int thisDrink, int numberOf)
     }
 }
 
-void Customer::checkTea()
+void Customer::printIfExist()
 {
+    //TEA
     if (milkTea->getQuantity() != 0)
         milkTea->print();
     if (gingerTea->getQuantity() != 0)
@@ -531,10 +523,8 @@ void Customer::checkTea()
         lycheeTea->print();
     if (peachTea->getQuantity() != 0)
         peachTea->print();
-}
 
-void Customer::checkCoffee()
-{
+    //COFFEE
     if (blackCoffee->getQuantity() != 0)
         blackCoffee->print();
     if (milkCoffee->getQuantity() != 0)
@@ -551,10 +541,8 @@ void Customer::checkCoffee()
         cappuccino->print();
     if (hotChocolate->getQuantity() != 0)
         hotChocolate->print();
-}
 
-void Customer::checkJuice()
-{
+    //JUICE
     if (lemonade->getQuantity() != 0)
         lemonade->print();
     if (orangeade->getQuantity() != 0)
@@ -567,10 +555,8 @@ void Customer::checkJuice()
         carrot_Juice->print();
     if (coconutWater->getQuantity() != 0)
         coconutWater->print();
-}
 
-void Customer::checkSmoothie()
-{
+    //SMOOTHIE
     if (avocado_Smoothie->getQuantity() != 0)
         avocado_Smoothie->print();
     if (durian_Smoothie->getQuantity() != 0)
@@ -583,10 +569,8 @@ void Customer::checkSmoothie()
         sugarApple_Smoothie->print();
     if (mango_Smoothie->getQuantity() != 0)
         mango_Smoothie->print();
-}
 
-void Customer::checkYogurt()
-{
+    //YOGURT
     if (cheese_Yogurt->getQuantity() != 0)
         cheese_Yogurt->print();
     if (avocado_Yogurt->getQuantity() != 0)
@@ -599,10 +583,8 @@ void Customer::checkYogurt()
         matcha_Yogurt->print();
     if (blueberry_Yogurt->getQuantity() != 0)
         blueberry_Yogurt->print();
-}
 
-void Customer::checkIceBlended()
-{
+    //ICE BLENDED
     if (lemon_IceBlended->getQuantity() != 0)
         lemon_IceBlended->print();
     if (blueberry_IceBlended->getQuantity() != 0)
@@ -617,10 +599,8 @@ void Customer::checkIceBlended()
         matcha_IceBlended->print();
     if (strawberry_IceBlended->getQuantity() != 0)
         strawberry_IceBlended->print();
-}
 
-void Customer::checkSoda()
-{
+    //SODA
     if (lemon_Soda->getQuantity() != 0)
         lemon_Soda->print();
     if (peach_Soda->getQuantity() != 0)
@@ -633,10 +613,8 @@ void Customer::checkSoda()
         kiwi_Soda->print();
     if (raspberry_Soda->getQuantity() != 0)
         raspberry_Soda->print();
-}
 
-void Customer::checkSoftDrink()
-{
+    //SOFT DRINK
     if (sevenUp->getQuantity() != 0)
         sevenUp->print();
     if (cocaCola->getQuantity() != 0)
@@ -649,4 +627,20 @@ void Customer::checkSoftDrink()
         sting->print();
     if (c2->getQuantity() != 0)
         c2->print();
+}
+
+void Customer::removeAllDrink()
+{
+    for (int i = 0; i <= 10; i++)
+    {
+        chooseTea(i, 0);
+        chooseCoffee(i, 0);
+        chooseJuice(i, 0);
+        chooseSmoothie(i, 0);
+        chooseYogurt(i, 0);
+        chooseIceBlended(i, 0);
+        chooseSoda(i, 0);
+        chooseSoftDrink(i, 0);
+    }
+    totalPrice = 0;
 }
