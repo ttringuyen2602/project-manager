@@ -1,9 +1,9 @@
-#pragma once // tr�nh d?ng d? thu vi?n khi g?i ch?ng file l�n nhau
+#pragma once // tránh đụng độ thư viện khi gọi chồng file lên nhau
 #include <stdio.h>
 #include <conio.h>
-#include<ctime> /* thu vi?n h? tr? v? th?i gian th?c */
-#include "windows.h" // thu vi?n n�y b� d?o l?m nh� - ch?a nhi?u d? choi nek - c? t�m hi?u d?n d?n s
-//======= l?y t?a d? x c?a con tr? hi?n t?i =============
+#include<ctime> /* thư viện hỗ trợ về thời gian thực */
+#include "windows.h" // thư viện này bá đạo lắm nhé - chứa nhiều đồ chơi nek - cứ tìm hiểu dần dần s
+//======= lấy tọa độ x của con trỏ hiện tại =============
 #define KEY_NONE	-1
 int whereX()
 {
@@ -12,7 +12,7 @@ int whereX()
 		return csbi.dwCursorPosition.X;
 	return -1;
 }
-//========= l?y t?a d? y c?a con tr? hi?n t?i =======
+//========= lấy tọa độ y của con trỏ hiện tại =======
 int whereY()
 {
 	CONSOLE_SCREEN_BUFFER_INFO csbi;
@@ -20,7 +20,7 @@ int whereY()
 		return csbi.dwCursorPosition.Y;
 	return -1;
 }
-//============== d?ch con tr? hi?n t?i d?n di?m c� t?a d? (x,y) ==========
+//============== dịch con trỏ hiện tại đến điểm có tọa độ (x,y) ==========
 void gotoXY(int x, int y)
 {
 	HANDLE hConsoleOutput;
@@ -28,7 +28,7 @@ void gotoXY(int x, int y)
 	hConsoleOutput = GetStdHandle(STD_OUTPUT_HANDLE);
 	SetConsoleCursorPosition(hConsoleOutput, Cursor_an_Pos);
 }
-//============= d?t m�u cho ch? =========
+//============= đặt màu cho chữ =========
 void SetColor(WORD color)
 {
 	HANDLE hConsoleOutput;
@@ -44,14 +44,14 @@ void SetColor(WORD color)
 
 	SetConsoleTextAttribute(hConsoleOutput, wAttributes);
 }
-//============== l�m ?n tr? chu?t ===========
+//============== làm ẩn trỏ chuột ===========
 void ShowCur(bool CursorVisibility)
 {
 	HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
 	CONSOLE_CURSOR_INFO cursor = { 1, CursorVisibility };
 	SetConsoleCursorInfo(handle, &cursor);
 }
-//======= tr? v? m� ph�m ngu?i d�ng b?m =========
+//======= trả về mã phím người dùng bấm =========
 int inputKey()
 {
 	if (_kbhit()) //true
