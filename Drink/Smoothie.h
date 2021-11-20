@@ -101,6 +101,6 @@ void Smoothie::addDrink(int choose, int numberOf)
 
 void Smoothie::print()
 {
-    cout <<setw(20)<<name <<setw(20)<< quantity <<setw(20)<< unitPrice <<setw(20)<<amount<<endl;
+    cout <<setw(30)<<name <<setw(20)<< quantity <<setw(20)<< unitPrice <<setw(20)<<amount<<endl;
     cout << endl;
 }
