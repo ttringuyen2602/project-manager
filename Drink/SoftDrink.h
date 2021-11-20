@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Drink.h"
 #pragma once
-
+#include <iomanip>
 class SoftDrink : public Drink
 {
 private:
@@ -25,7 +25,6 @@ SoftDrink::~SoftDrink() {}
 
 void SoftDrink::setSevenUp(int numberOf)
 {
-
     name = "7UP";
     quantity = numberOf;
     unitPrice = 18000;
@@ -99,7 +98,6 @@ void SoftDrink::addDrink(int choose, int numberOf)
 
 void SoftDrink::print()
 {
-    cout << name << " x" << quantity << "\t" << unitPrice << endl;
-    cout << "Thanh tien: " << amount << endl;
+    cout <<setw(20)<<name <<setw(20)<< quantity <<setw(20)<< unitPrice <<setw(20)<<amount<<endl;
     cout << endl;
 }

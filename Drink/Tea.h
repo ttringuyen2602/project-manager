@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Drink.h"
 #pragma once
-
+#include <iomanip>
 using namespace std;
 
 class Tea : public Drink
@@ -106,7 +106,6 @@ void Tea::addDrink(int choose, int numberOf)
 
 void Tea::print()
 {
-    cout << name << " x" << quantity << "\t" << unitPrice << endl;
-    cout << "Thanh tien: " << amount << endl;
+    cout <<setw(20)<<name <<setw(20)<< quantity <<setw(20)<< unitPrice <<setw(20)<<amount<<endl;
     cout << endl;
 }
