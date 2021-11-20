@@ -16,7 +16,7 @@ using namespace std;
 class Customer
 {
 private:
-    static int totalPrice; //Lưu giữ tổng số tiền cho số đồ uống đã gọi
+    int totalPrice; //Lưu giữ tổng số tiền cho số đồ uống đã gọi
 
     //ĐÂY LÀ CÁC BIẾN DÙNG ĐỂ LƯU GIỮ GIÁ TRỊ CHO TỪNG THỨC UỐNG
 
