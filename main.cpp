@@ -4,10 +4,10 @@
 #include <conio.h>
 #include "table.h"
 #include<iomanip>
-
+#include<time.h>
 using namespace std;
-int x = 50;int y = 5; // Toạ độ dấu nháy trên console
-
+int x = 50;int y = 5;
+time_t my_time = time(NULL);
 void TeaMenu()
 {	
 	SetColor(154);
@@ -311,7 +311,7 @@ void DrinkMenu(int &typeOfDrink,int &thatDrink)
 }
 
 
-void box(int x, int y, int w, int h,string nd){ //Hàm in ra box kèm nội dung
+void box(int x, int y, int w, int h,string nd){
 	textcolor(7);
 	for(int iy = y+1;iy <= y + h-1;iy++){
 		for(int ix = x+1;ix <= x + w-1;ix++){
@@ -343,7 +343,7 @@ void box(int x, int y, int w, int h,string nd){ //Hàm in ra box kèm nội dung
 	
 	
 }
-void thanh_sang(int x, int y, int w, int h, int b_color,string nd){ //Tô sáng nội dung cho box
+void thanh_sang(int x, int y, int w, int h, int b_color,string nd){
 	textcolor(b_color);
 	for(int iy = y+1;iy <= y + h-1;iy++){
 		for(int ix = x+1;ix <= x + w-1;ix++){
@@ -357,18 +357,18 @@ void thanh_sang(int x, int y, int w, int h, int b_color,string nd){ //Tô sáng 
 
 void PrintMenu()
 {	
-	int w=20;
+	int w=27;
 	int h=2;
 	ShowCur(0);
     box(x,y,w,h,"1. Goi Do Uong");
     box(x,y+2,w,h,"2. Xoa Do Uong");
     box(x,y+4,w,h,"3. Xem Bill");
     box(x,y+6,w,h,"4. Tinh Tien");
-    box(x,y+8,w,h,"5. Khac");
+    box(x,y+8,w,h,"5. Danh sach ban co nguoi");
     box(x,y+10,w,h,"6. Thoat");
     for(int i=1;i<6;i++){
     	gotoXY(x,y + (i*2));cout<<char(195);
-    	gotoXY(x+20,y + (i*2));cout<<char(180);
+    	gotoXY(x+w,y + (i*2));cout<<char(180);
 	}
 
 }
@@ -378,7 +378,7 @@ void Choose(Table table[])
     int tableNumber;
     int typeOfDrink, thatDrink, numberOf;
 	int sl = 6; 
-	int w=20;
+	int w=27;
 	int h=2;
 	int b_color = 1;
 	int b_color_sang = 207;
@@ -409,16 +409,16 @@ void Choose(Table table[])
 					else if(yp == y+6){
 						thanh_sang(xp,yp-2,w,h,b_color,"3. Xem Bill");
 						thanh_sang(xp,yp,w,h,b_color_sang,"4. Tinh Tien");
-						thanh_sang(xp,yp+2,w,h,b_color,"5. Khac");
+						thanh_sang(xp,yp+2,w,h,b_color,"5. Danh sach ban co nguoi");
 					}
 					else if(yp == y+8){
 						thanh_sang(xp,yp-2,w,h,b_color,"4. Tinh Tien");
-						thanh_sang(xp,yp,w,h,b_color_sang,"5. Khac");
+						thanh_sang(xp,yp,w,h,b_color_sang,"5. Danh sach ban co nguoi");
 						thanh_sang(xp,yp+2,w,h,b_color,"6. Thoat");
 					}
 					else{
 						thanh_sang(xp,yp-10,w,h,b_color,"1. Goi Do Uong");
-						thanh_sang(xp,yp-2,w,h,b_color,"5. Khac");
+						thanh_sang(xp,yp-2,w,h,b_color,"5. Danh sach ban co nguoi");
 						thanh_sang(xp,yp,w,h,b_color_sang,"6. Thoat");
 					}
 					kt = false;
@@ -430,13 +430,13 @@ void Choose(Table table[])
 					if(c == -32){
 						kt=true;
 						c=_getch();
-						if(c == 72){//mũi tên lên
+						if(c == 72){//mui ten len
 							if(yp != y)
 								yp -= 2;
 							else
 								yp = y+h*(sl-1);
 						}
-						else if(c == 80){//mũi tên xuống
+						else if(c == 80){//mui ten xuong
 							if(yp != y+h*(sl-1))
 								yp += 2;
 							else
@@ -444,7 +444,7 @@ void Choose(Table table[])
 						}	
 					}
 					else{
-						if(c == 13){	//Khi nhấn enter
+						if(c == 13){	
 							a=yp;
 							system("cls");
 							switch (a)
@@ -485,13 +485,32 @@ void Choose(Table table[])
 						            {	
 						            	cout<<"\t            ------------------------------------------------------------------------"<<endl;
 						                cout<<setw(37)<< "Tong thanh toan: " <<setw(53)<< table[tableNumber].customer.getTotalPrice() << endl;
-						                table[tableNumber].customer.removeAllDrink();
+						               	cout<<setw(34)<<"Hoa don ngay: "<<ctime(&my_time)<<endl;
+									    table[tableNumber].customer.removeAllDrink();						                
 						            }
 						            else
-						                cout << "Ban nay chua goi gi ca!!" << endl;
-						            _getch();
+						                cout << "Ban nay chua goi gi ca!!" << endl;						    
 						            cout<<"Nhan phim bat ky de tiep tuc!!"<<endl;
+						            _getch();
 						            break;
+						        case 13:
+						        	int dem=0;
+						        	gotoXY(x-5,y-2);
+						        	cout<<"**** Danh sach ban co nguoi ****"<<endl;
+						        	for(int i=0;i<100;i++){
+										if(table[i].customer.getTotalPrice() != 0){
+											gotoXY(x-5,y+i);
+											textcolor(12);
+											cout<<"Ban so "<<i<<endl;
+											dem=1;
+										}
+									}
+									if(dem == 0 ){
+										cout<<"Tat ca ban dang trong";
+									}
+									cout<<endl<<"Nhan phim bat ky de tiep tuc"<<endl;
+						        	_getch();
+						        	break;
 						        }
 						        break;
 							
@@ -503,8 +522,8 @@ void Choose(Table table[])
 }while(a != 15);
 }
 int main()
-{	 
-    Table table[100];
+{	
+	Table table[100];
     Choose(table);
     system("pause");
 }
