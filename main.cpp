@@ -6,14 +6,14 @@
 #include<iomanip>
 
 using namespace std;
-int x = 50;int y = 5; // toa do dau nhay tren console
+int x = 50;int y = 5; // Toạ độ dấu nháy trên console
 
 void TeaMenu()
 {	
 	SetColor(154);
-	gotoXY(x-10,y-2);//can giua
+	gotoXY(x-10,y-2);
 	cout<<"********* TeaMenu ***********";
-	char *arr[] = {
+	const char *arr[] = {
 		"1. Milk Tea", "2. Ginger Tea",
 		"3. Kumquat Tea", "4. Lemon Tea",
 		"5. Lipton Tea", "6. Lychee Tea",
@@ -34,7 +34,7 @@ void CoffeeMenu()
 	SetColor(14);
 	gotoXY(x-10,y-2);
 	cout<<"********* CoffeeMenu ********";
-	char *arr[] = {
+	const char *arr[] = {
 		"1. Black Coffee", "2. Milk Coffee",
 		"3. White Coffee", "4. Hot Cocoa",
 		"5. Espresso", "6. Latte",
@@ -55,7 +55,7 @@ void JuiceMenu()
 	SetColor(57);
 	gotoXY(x-10,y-2);
 	cout<<"********* JuiceMenu *************";
-	char *arr[] = {
+	const char *arr[] = {
 		"1. Lemonade", "2. Orangeade",
 		"3. Watermelon Juice", "4. Passion Fruit Juice",
 		"5. Carrot Juice", "6. Coconut Water"
@@ -75,7 +75,7 @@ void SmoothieMenu()
 	SetColor(27);
 	gotoXY(x-10,y-2);
 	cout<<"********* SmoothieMenu **********";
-	char *arr[] = {
+	const char *arr[] = {
 		"1. Avocado Smoothie", "2. Durian Smoothie",
 		"3. Blueberry Smoothie", "4. Strawberry Smoothie",
 		"5. Sugar Apple Smoothie", "6. Mango Smoothie"
@@ -95,7 +95,7 @@ void YogurtMenu()
 	SetColor(166);
 	gotoXY(x-10,y-2);
 	cout<<"********* YogurtMenu *********";
-	char *arr[] = {
+	const char *arr[] = {
 		"1. Chesse Yogurt", "2. Avocado Yogurt",
 		"3. Lychee Yogurt", "4. Mango Yogurt",
 		"5. Matcha Yogurt", "6. Blueberry Yogurt"
@@ -115,7 +115,7 @@ void IceBlendedMenu()
 	SetColor(45);
 	gotoXY(x-10,y-2);
 	cout<<"************ IceBlendedMenu ***********";
-	char *arr[] = {
+	const char *arr[] = {
 		"1. Lemon Ice Blended", "2. Blueberry Ice Blended",
 		"3. Chocolate Ice Blended", "4. Mint Ice Blended",
 		"5. Sapoche Coffee Ice Blended", "6. Matcha Ice Blended",
@@ -136,7 +136,7 @@ void SodaMenu()
 	SetColor(220);
 	gotoXY(x-10,y-2);
 	cout<<"********* SodaMenu **********";
-	char *arr[] = {
+	const char *arr[] = {
 		"1. Lemon Soda", "2. Peach Soda",
 		"3. Mint Soda", "4. Passion Soda",
 		"5. Kiwi Soda", "6. Raspberry Soda"
@@ -156,7 +156,7 @@ void SoftDrinkMenu()
 	SetColor(177);
 	gotoXY(x-10,y-2);
 	cout<<"********* SoftDrinkMenu *********";
-	char *arr[] = {
+	const char *arr[] = {
 		"1. Seven Up", "2. Coca-Cola",
 		"3. Redbull", "4. Revive",
 		"5. Sting", "6. C2"
@@ -176,7 +176,7 @@ void DrinkMenu(int &typeOfDrink,int &thatDrink)
 	SetColor(207);
 	gotoXY(x-10,y-2);
 	cout<<"********* DrinkMenu *********";
-	char *a[]= {
+	const char *a[]= {
 		 "1. TEA", "2. COFFEE",
 		 "3. JUICE", "4. SMOOTHIE",
 		 "5. YOGURT", "6. ICE BLENDED",
@@ -198,7 +198,7 @@ void DrinkMenu(int &typeOfDrink,int &thatDrink)
     {
         cout << "\n\tCANHBAO!!!\nChi nen chon nhung lua chon da co!" << endl;
         cout << endl;
-        getch();
+        _getch();
         typeOfDrink = -1;
         return;
     }
@@ -311,7 +311,7 @@ void DrinkMenu(int &typeOfDrink,int &thatDrink)
 }
 
 
-void box(int x, int y, int w, int h,string nd){  // ve box menu
+void box(int x, int y, int w, int h,string nd){ //Hàm in ra box kèm nội dung
 	textcolor(7);
 	for(int iy = y+1;iy <= y + h-1;iy++){
 		for(int ix = x+1;ix <= x + w-1;ix++){
@@ -343,7 +343,7 @@ void box(int x, int y, int w, int h,string nd){  // ve box menu
 	
 	
 }
-void thanh_sang(int x, int y, int w, int h, int b_color,string nd){ //lam sang noi dung trong box
+void thanh_sang(int x, int y, int w, int h, int b_color,string nd){ //Tô sáng nội dung cho box
 	textcolor(b_color);
 	for(int iy = y+1;iy <= y + h-1;iy++){
 		for(int ix = x+1;ix <= x + w-1;ix++){
@@ -355,7 +355,7 @@ void thanh_sang(int x, int y, int w, int h, int b_color,string nd){ //lam sang n
 	cout<<nd;
 }
 
-void PrintMenu() //tao boxmenu
+void PrintMenu()
 {	
 	int w=20;
 	int h=2;
@@ -425,18 +425,18 @@ void Choose(Table table[])
 				}
 				//dieu khien bang phim mui ten
 				
-				if(kbhit()){
-					char c = getch();
+				if(_kbhit()){
+					char c = _getch();
 					if(c == -32){
 						kt=true;
-						c=getch();
-						if(c == 72){//mui ten len
+						c=_getch();
+						if(c == 72){//mũi tên lên
 							if(yp != y)
 								yp -= 2;
 							else
 								yp = y+h*(sl-1);
 						}
-						else if(c == 80){//mui ten xuong
+						else if(c == 80){//mũi tên xuống
 							if(yp != y+h*(sl-1))
 								yp += 2;
 							else
@@ -444,7 +444,7 @@ void Choose(Table table[])
 						}	
 					}
 					else{
-						if(c == 13){	//bat su kien bang enter
+						if(c == 13){	//Khi nhấn enter
 							a=yp;
 							system("cls");
 							switch (a)
@@ -475,7 +475,7 @@ void Choose(Table table[])
 						            cout << "Ban so? ";
 						            cin >> tableNumber;
 						            table[tableNumber].customer.printIfExist();
-						            getch();
+						            _getch();
 						            break;
 						        case 11:
 						            cout << "Ban so? ";
@@ -489,7 +489,7 @@ void Choose(Table table[])
 						            }
 						            else
 						                cout << "Ban nay chua goi gi ca!!" << endl;
-						            getch();
+						            _getch();
 						            cout<<"Nhan phim bat ky de tiep tuc!!"<<endl;
 						            break;
 						        }
@@ -504,7 +504,7 @@ void Choose(Table table[])
 }
 int main()
 {	 
-	Table table[100];
+    Table table[100];
     Choose(table);
     system("pause");
 }
