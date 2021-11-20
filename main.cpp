@@ -6,12 +6,12 @@
 #include<iomanip>
 
 using namespace std;
-int x = 50;int y = 5;
+int x = 50;int y = 5; // toa do dau nhay tren console
 
 void TeaMenu()
 {	
 	SetColor(154);
-	gotoXY(x-10,y-2);
+	gotoXY(x-10,y-2);//can giua
 	cout<<"********* TeaMenu ***********";
 	char *arr[] = {
 		"1. Milk Tea", "2. Ginger Tea",
@@ -311,7 +311,7 @@ void DrinkMenu(int &typeOfDrink,int &thatDrink)
 }
 
 
-void box(int x, int y, int w, int h,string nd){
+void box(int x, int y, int w, int h,string nd){  // ve box menu
 	textcolor(7);
 	for(int iy = y+1;iy <= y + h-1;iy++){
 		for(int ix = x+1;ix <= x + w-1;ix++){
@@ -343,7 +343,7 @@ void box(int x, int y, int w, int h,string nd){
 	
 	
 }
-void thanh_sang(int x, int y, int w, int h, int b_color,string nd){
+void thanh_sang(int x, int y, int w, int h, int b_color,string nd){ //lam sang noi dung trong box
 	textcolor(b_color);
 	for(int iy = y+1;iy <= y + h-1;iy++){
 		for(int ix = x+1;ix <= x + w-1;ix++){
@@ -355,7 +355,7 @@ void thanh_sang(int x, int y, int w, int h, int b_color,string nd){
 	cout<<nd;
 }
 
-void PrintMenu()
+void PrintMenu() //tao boxmenu
 {	
 	int w=20;
 	int h=2;
@@ -444,7 +444,7 @@ void Choose(Table table[])
 						}	
 					}
 					else{
-						if(c == 13){	
+						if(c == 13){	//bat su kien bang enter
 							a=yp;
 							system("cls");
 							switch (a)
