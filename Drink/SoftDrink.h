@@ -104,7 +104,7 @@ void SoftDrink::print()
     std::cout << std::setprecision(2);
     cout << setw(30) << name << setw(20) << quantity << setw(20) << unitPrice << setw(20) << amount << endl;
     cout << endl;
-    softdrink.open("report.txt",ios::app);
+    softdrink.open("report.txt",ios::app); //ghi thông tin ra file
     softdrink<<name<<setw(10)<<quantity<<setw(10)<<unitPrice<<setw(10)<<amount<<endl;
     softdrink.close();
 }
