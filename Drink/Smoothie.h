@@ -2,6 +2,8 @@
 #include "Drink.h"
 #pragma once
 #include <iomanip>
+#include<fstream>
+fstream smoothie;
 using namespace std;
 
 class Smoothie : public Drink
@@ -101,6 +103,11 @@ void Smoothie::addDrink(int choose, int numberOf)
 
 void Smoothie::print()
 {
-    cout <<setw(30)<<name <<setw(20)<< quantity <<setw(20)<< unitPrice <<setw(20)<<amount<<endl;
+    std::cout << std::fixed;
+    std::cout << std::setprecision(2);
+    cout << setw(30) << name << setw(20) << quantity << setw(20) << unitPrice << setw(20) << amount << endl;
     cout << endl;
+	smoothie.open("report.txt",ios::app);
+    smoothie<<name<<setw(10)<<quantity<<setw(10)<<unitPrice<<setw(10)<<amount<<endl;
+    smoothie.close();
 }

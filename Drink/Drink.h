@@ -20,6 +20,13 @@ public:
     virtual void print() = 0;
     double getAmount() { return amount; }
     int getQuantity() { return quantity; }
+    Drink &operator+=(const Drink &drink);
+    string getName(){
+    	return name;
+	};
+	double getPrice(){
+		return unitPrice;
+	};
 };
 
 Drink::Drink()
@@ -46,4 +53,19 @@ Drink::Drink(const Drink &drink)
     this->amount = drink.amount;
 }
 
-Drink::~Drink() {}
+Drink::~Drink()
+{
+    quantity = 0;
+    unitPrice = 0;
+    amount = 0;
+    name = "";
+}
+
+Drink &Drink::operator+=(const Drink &drink)
+{
+    this->name = drink.name;
+    this->quantity += drink.quantity;
+    this->unitPrice = drink.unitPrice;
+    this->amount += drink.amount;
+    return *this;
+}
