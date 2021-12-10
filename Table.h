@@ -706,7 +706,7 @@ void Table::chooseSoftDrink(int thisDrink, int numberOf, int rateOfIce, int rate
 
 void Table::printIfExist()
 {
-    cout << setw(30) << "Ten" << setw(20) << "So luong" << setw(20) << "Don gia" << setw(20) << "Thanh tien" << endl;
+    cout << setw(30) << "Ten" << setw(39) << "So luong" << setw(20) << "Don gia" << setw(20) << "Thanh tien" << endl;
     // TEA
     if (milkTea->getQuantity() != 0)
         milkTea->print();
