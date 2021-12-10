@@ -1,3 +1,7 @@
+// Nguyễn Hữu Tri
+// 6151071106
+// Chức năng "Tỉ lệ đá đường bắt đầu ở dòng 768 - 803"
+
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <string>
@@ -540,7 +544,7 @@ void ds_ban(Table table[])
 		}
 	}
 	gotoXY(a, b);
-	box(a-14, b+12, w1, h1, "0. Thoat");
+	box(a - 14, b + 12, w1, h1, "0. Thoat");
 }
 void PrintMenu()
 {
@@ -621,13 +625,38 @@ void _khac(Storage &storage)
 	} while (chon != 0);
 }
 
+bool check_input(string input)
+{
+	if (is_number(input))
+	{
+		int temp = stoi(input);
+		if (temp > 20)
+		{
+			cout << "WARNING: WRONG INPUT!!" << endl;
+			_getch();
+			return false;
+		}
+		else
+			return true;
+	}
+	else
+	{
+		cout << "WARNING: WRONG INPUT!!" << endl;
+		_getch();
+	}
+	return false;
+}
+
 void Choose(Table table[], Storage &storage)
 {
-
 	storage.openStorage();
 	int tableNumber = 0;
 	int typeOfDrink = 0, thatDrink = 0, numberOf = 0;
 	string input;
+	string nameDrink;
+	int haveRate;
+	int rateOfIce;
+	int rateOfSugar;
 
 	int sl = 6;
 	int w = 27;
@@ -638,7 +667,6 @@ void Choose(Table table[], Storage &storage)
 
 	do
 	{
-
 		system("cls");
 		PrintMenu();
 		int xp = x, yp = y;
@@ -719,18 +747,16 @@ void Choose(Table table[], Storage &storage)
 						switch (a)
 						{
 						case 5:
+							input = "";
 							ds_ban(table);
 							cout << endl;
 							cout << "\nBan so? ";
 							cin >> input;
-							if (is_number(input))
-								tableNumber = stoi(input);
-							else
-							{
-								cout << "WARNING: WRONG INPUT!!" << endl;
-								_getch();
+							if (check_input(input) == false)
 								break;
-							}
+							else
+								tableNumber = stoi(input);
+
 							while (true)
 							{
 								if (tableNumber == 0)
@@ -743,27 +769,88 @@ void Choose(Table table[], Storage &storage)
 								if (typeOfDrink == -1 || thatDrink == -1)
 									continue;
 
+								haveRate = 0;
+								rateOfIce = 0;
+								rateOfSugar = 0;
+								while (haveRate != 1)
+								{
+									cout << "Co ti le da duong? " << endl;
+									cout << "1. Khong" << endl;
+									cout << "2. Co" << endl;
+									cin >> haveRate;
+
+									if (haveRate == 2)
+									{
+										cout << "Ti le da: ";
+										cin >> rateOfIce;
+										cout << "Ti le duong: ";
+										cin >> rateOfSugar;
+										break;
+									}
+									else if (haveRate != 1)
+										cout << "ERROR!!" << endl;
+								}
+
 								cout << "So luong: ";
 								cin >> numberOf;
+
 								if (numberOf != 0)
-									table[tableNumber].callDrink(typeOfDrink, thatDrink, numberOf);
+								{
+									if (haveRate == 2)
+										table[tableNumber].callDrink(typeOfDrink, thatDrink, numberOf, rateOfIce, rateOfSugar);
+									else if (haveRate == 1)
+										table[tableNumber].callDrink(typeOfDrink, thatDrink, numberOf, rateOfIce, rateOfSugar);
+								}
 							}
 							break;
 						case 7:
+							input = "";
 							ds_ban(table);
 							cout << endl;
 							cout << "\nBan so? ";
-							cin >> tableNumber;
+							cin >> input;
+							if (check_input(input) == false)
+								break;
+							else
+								tableNumber = stoi(input);
 							if (tableNumber == 0)
 								break;
-							system("cls");
-							table[tableNumber].removeDrink(typeOfDrink, thatDrink);
+
+							while (true)
+							{
+								if (tableNumber == 0)
+									break;
+								system("cls");
+								DrinkMenu(typeOfDrink, thatDrink);
+
+								if (typeOfDrink == 0)
+									break;
+								if (typeOfDrink == -1 || thatDrink == -1)
+									continue;
+								cout << "So luong: ";
+								cin >> numberOf;
+								numberOf = -numberOf;
+
+								if (numberOf != 0)
+									table[tableNumber].removeDrink(typeOfDrink, thatDrink, numberOf, rateOfIce, rateOfSugar);
+								if (table[tableNumber].getTotalPrice() != 0)
+									cout << "Da xoa thanh cong!!" << endl;
+								else
+									cout << "Ban nay chua goi gi ca!!" << endl;
+								getch();
+								system("cls");
+							}
 							break;
 						case 9:
+							input = "";
 							ds_ban(table);
 							cout << endl;
 							cout << "\nBan so? ";
-							cin >> tableNumber;
+							cin >> input;
+							if (check_input(input) == false)
+								break;
+							else
+								tableNumber = stoi(input);
 							if (tableNumber == 0)
 								break;
 							if (table[tableNumber].getTotalPrice() != 0)
@@ -773,13 +860,17 @@ void Choose(Table table[], Storage &storage)
 							_getch();
 							break;
 						case 11:
+							input = "";
 							ds_ban(table);
 							cout << endl;
 							cout << "\nBan so? ";
-							cin >> tableNumber;
+							cin >> input;
+							if (check_input(input) == false)
+								break;
+							else
+								tableNumber = stoi(input);
 							if (tableNumber == 0)
 								break;
-							system("cls");
 							if (table[tableNumber].getTotalPrice() != 0)
 							{
 								table[tableNumber].printIfExist();
@@ -793,6 +884,7 @@ void Choose(Table table[], Storage &storage)
 								cout << "Ban nay chua goi gi ca!!" << endl;
 							cout << "Nhan phim bat ky de tiep tuc!!" << endl;
 							_getch();
+							system("cls");
 							break;
 						case 13:
 							_khac(storage);
@@ -803,7 +895,6 @@ void Choose(Table table[], Storage &storage)
 				}
 			}
 		}
-
 	} while (a != 15);
 	storage.closeStorage();
 }
@@ -811,8 +902,14 @@ void Choose(Table table[], Storage &storage)
 int main()
 {
 	Table table[50];
+
 	SetConsoleCtrlHandler(CtrlHandler, TRUE);
 	Choose(table, storage);
+
+	// storage.openStorage();
+	// storage.viewBalance();
+	// storage.closeStorage();
+
 	system("pause");
 	return 0;
 }

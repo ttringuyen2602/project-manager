@@ -6,10 +6,12 @@ using namespace std;
 class Drink
 {
 protected:
-    string name;      //tên sản phẩm
-    int quantity;     //số lương
+    string name;      // tên sản phẩm
+    int quantity;     // số lương
     double unitPrice; //đơn giá
-    double amount;    //thành tiền
+    double amount;    // thành tiền
+    int rateOfIce;
+    int rateOfSugar;
 
 public:
     Drink();
@@ -20,7 +22,15 @@ public:
     virtual void print() = 0;
     double getAmount() { return amount; }
     int getQuantity() { return quantity; }
+    string getName() { return name; }
     Drink &operator+=(const Drink &drink);
+    int getRateOfIce() { return rateOfIce; }
+    int getRateOfSugar() { return rateOfSugar; }
+    void setRate(int rateOfIce, int rateOfSugar)
+    {
+        this->rateOfIce = rateOfIce;
+        this->rateOfSugar = rateOfSugar;
+    }
 };
 
 Drink::Drink()
@@ -29,6 +39,8 @@ Drink::Drink()
     unitPrice = 0;
     amount = 0;
     name = "";
+    rateOfIce = 0;
+    rateOfSugar = 0;
 }
 
 Drink::Drink(string name, int quantity, int unitPrice, int amount)
