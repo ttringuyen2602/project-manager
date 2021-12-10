@@ -22,6 +22,7 @@ public:
     void openStorage();
     void closeStorage();
     void viewBalance();
+    void history();
 };
 
 Storage::Storage()
