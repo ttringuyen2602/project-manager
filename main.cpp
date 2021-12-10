@@ -645,7 +645,6 @@ bool check_input(string input)
 
 void Choose(Table table[], Storage &storage)
 {
-
 	storage.openStorage();
 	int tableNumber = 0;
 	int typeOfDrink = 0, thatDrink = 0, numberOf = 0;
@@ -660,7 +659,6 @@ void Choose(Table table[], Storage &storage)
 
 	do
 	{
-
 		system("cls");
 		PrintMenu();
 		int xp = x, yp = y;
@@ -763,10 +761,41 @@ void Choose(Table table[], Storage &storage)
 								if (typeOfDrink == -1 || thatDrink == -1)
 									continue;
 
+								int haveRate;
+								int rateOfIce;
+								int rateOfSugar;
+								haveRate = 0;
+								rateOfIce = 0;
+								rateOfSugar = 0;
+								while (haveRate != 1)
+								{
+									cout << "Co ti le da duong? " << endl;
+									cout << "1. Khong" << endl;
+									cout << "2. Co" << endl;
+									cin >> haveRate;
+
+									if (haveRate == 2)
+									{
+										cout << "Ti le da: ";
+										cin >> rateOfIce;
+										cout << "Ti le duong: ";
+										cin >> rateOfSugar;
+										break;
+									}
+									else if (haveRate != 1)
+										cout << "ERROR!!" << endl;
+								}
+
 								cout << "So luong: ";
 								cin >> numberOf;
+
 								if (numberOf != 0)
-									table[tableNumber].callDrink(typeOfDrink, thatDrink, numberOf);
+								{
+									if (haveRate == 2)
+										table[tableNumber].callDrink(typeOfDrink, thatDrink, numberOf, rateOfIce, rateOfSugar);
+									else if (haveRate == 1)
+										table[tableNumber].callDrink(typeOfDrink, thatDrink, numberOf, rateOfIce, rateOfSugar);
+								}
 							}
 							break;
 						case 7:
@@ -852,8 +881,14 @@ void Choose(Table table[], Storage &storage)
 int main()
 {
 	Table table[50];
+
 	SetConsoleCtrlHandler(CtrlHandler, TRUE);
 	Choose(table, storage);
+
+	// storage.openStorage();
+	// storage.viewBalance();
+	// storage.closeStorage();
+
 	system("pause");
 	return 0;
 }

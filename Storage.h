@@ -9,7 +9,6 @@ class Storage
 {
 private:
     double money;
-    string stringInFile;
 
     fstream writeFile;
     fstream readFile;
@@ -22,13 +21,12 @@ public:
     void openStorage();
     void closeStorage();
     void viewBalance();
-    void history();
+    void viewHistory();
 };
 
 Storage::Storage()
 {
     money = 0;
-    stringInFile = "";
 }
 
 Storage::~Storage()
@@ -48,6 +46,7 @@ void Storage::withdraw(double money)
 void Storage::openStorage()
 {
     readFile.open("storage.txt", ios::in);
+
     readFile >> money;
     readFile.close();
     writeFile.open("storage.txt", ios::out);
@@ -61,5 +60,7 @@ void Storage::closeStorage()
 
 void Storage::viewBalance()
 {
+    std::cout << std::fixed;
+    std::cout << std::setprecision(2);
     cout << money << endl;
 }
