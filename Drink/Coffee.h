@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Drink.h"
+#include <iomanip>
 #pragma once
 
 using namespace std;
@@ -124,7 +125,6 @@ void Coffee::addDrink(int choose, int numberOf)
 
 void Coffee::print()
 {
-    cout << name << " x" << quantity << "\t" << unitPrice << endl;
-    cout << "Thanh tien: " << amount << endl;
+    cout << setw(30) << name << setw(20) << quantity << setw(20) << unitPrice << setw(20) << amount << endl;
     cout << endl;
 }

@@ -1,6 +1,7 @@
 #include <iostream>
 #pragma once
 #include "Drink.h"
+#include <iomanip>
 using namespace std;
 
 class IceBlended : public Drink
@@ -118,7 +119,6 @@ void IceBlended::addDrink(int choose, int numberOf)
 
 void IceBlended::print()
 {
-    cout << name << " x" << quantity << "\t" << unitPrice << endl;
-    cout << "Thanh tien: " << amount << endl;
+   	cout <<setw(30)<<name <<setw(20)<< quantity <<setw(20)<< unitPrice <<setw(20)<<amount<<endl;
     cout << endl;
 }
