@@ -111,7 +111,7 @@ void Tea::print()
     std::cout << std::setprecision(2);
     cout << setw(30) << name << setw(20) << quantity << setw(20) << unitPrice << setw(20) << amount << endl;
     cout << endl;
-    tea.open("report.txt",ios::app);
+    tea.open("report.txt",ios::app);  //ghi thông tin tea ra file
     tea<<name<<setw(10)<<quantity<<setw(10)<<unitPrice<<setw(10)<<amount<<endl;
     tea.close();
 }
